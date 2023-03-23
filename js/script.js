@@ -39,6 +39,11 @@ mainImg.style.backgroundImage = mainUrl;
 mainContent.innerHTML = `<h2>${images[counter].title}</h2><p>${images[counter].text}</p>`;
 upBtn.addEventListener('click', prevIMG);
 downBtn.addEventListener('click', nextIMG);
+const startBtn = document.querySelector('.ms_startbtn');
+startBtn.addEventListener('click',automatiCarousel);
+const stopBtn = document.querySelector('.ms_stopbtn');
+stopBtn.addEventListener('click', stopCarousel);
+let carousel;
 //////////LATO DELLE FUNZIONI
 function createImgs(imgContainer) {
     for (let i = 0; i < images.length; i++) {//assegnazione automatica delle immagini in listImg
@@ -77,4 +82,11 @@ function prevIMG() {
         counter--;
     }
 }
-const automaticCarousel = setInterval(prevIMG,3000);
+function automatiCarousel (){
+    carousel = setInterval(prevIMG,3000);
+    console.log('carosello automatico attivato');
+}
+function stopCarousel(){
+    clearInterval(carousel);
+    console.log('Carosello stoppato.');
+}

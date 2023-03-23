@@ -28,8 +28,6 @@ body{
     left: 50%;
     transform: translate(-50%, -50%);
     display: flex;
-    /*debug*/
-    background-color: lightcoral;
 }
 .ms_main-img{
     width: 70%;
@@ -37,15 +35,35 @@ body{
     background-size: cover;
     background-position: center;
     position: relative;
-    /*debug*/
-    background-color: red;
 }
 .ms_left-img-shows{
     width: 30%;
     height: 100%;
     position: relative;
-    /*debug*/
-    background-color: aqua;
+}
+.ms_button-container{
+    width: 80%;
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+}
+.ms_startbtn,
+.ms_stopbtn{
+    margin-top: 10px;
+    padding: 10px;
+    border: 1px solid black;
+    cursor: pointer;
+    color: white;
+}
+.ms_startbtn{
+    border-color: green;
+    background-color: green;
+}
+.ms_stopbtn{
+    border-color: red;
+    background-color: red;
 }
 /*MS LEFT IMG SHOWS CHILDS*/
 .ms_list-img{
@@ -57,7 +75,6 @@ body{
     height: calc(100% / 5);
     background-size: cover;
     background-position: center;
-    /*debug*/
     border: 1px solid black;
 }
 .up{
