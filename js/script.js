@@ -21,6 +21,7 @@ const images = [
         text: 'Marvel\'s Avengers is an epic, third-person, action-adventure game that combines an original, cinematic story with single-player and co-operative gameplay.',
     }
 ];
+
 const mainImg = document.querySelector('.ms_main-img');//identifico con la varibaile mainImg il contenitore ms_main-img
 console.log(mainImg);
 const listImg = document.querySelector('.ms_list-img');//identifico con la varibaile listImg il contenitore ms_list-img
@@ -38,18 +39,36 @@ mainImg.style.backgroundImage = mainUrl;
 mainContent.innerHTML = images[counter].text;
 upBtn.addEventListener('click', function(){
     let currentMainImg = images[counter];
+    console.log('counter', counter);
+    console.log('current', currentMainImg);
     if(counter === 0){
-        counter = images.lenght -1;
+        counter = images.length - 1; //4
+        mainContent.innerHTML = currentMainImg.text;
+        let mainUrl = `url('../${currentMainImg.image}')`;
+        mainImg.style.backgroundImage = mainUrl;
+        // counter--;
+    }else{
         mainContent.innerHTML = currentMainImg.text;
         let mainUrl = `url('../${currentMainImg.image}')`;
         mainImg.style.backgroundImage = mainUrl;
         counter--;
-    }else{
-        counter = images.lenght -1;
+    }
+});
+downBtn.addEventListener('click', function(){
+    let currentMainImg = images[counter];
+    if(counter === images.length -1){
+        counter = 0;
         mainContent.innerHTML = currentMainImg.text;
         let mainUrl = `url('../${currentMainImg.image}')`;
         mainImg.style.backgroundImage = mainUrl;
+        
+    }else{
+        mainContent.innerHTML = currentMainImg.text;
+        let mainUrl = `url('../${currentMainImg.image}')`;
+        mainImg.style.backgroundImage = mainUrl;
+        counter++;
     }
+    
 })
 //////////LATO DELLE FUNZIONI
 function createImgs(imgContainer) {
