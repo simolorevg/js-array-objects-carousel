@@ -45,6 +45,8 @@ img{
 .ms_img-col{
     width: 100%;
     height: calc(100% / 5);
+    background-size: cover;
+    background-position: center;
     /*debug*/
     border: 1px solid black;
 }

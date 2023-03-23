@@ -25,3 +25,11 @@ const mainImg = document.querySelector('.ms_main-img');//identifico con la varib
 console.log(mainImg);
 const listImg = document.querySelector('.ms_list-img');//identifico con la varibaile listImg il contenitore ms_list-img
 console.log(listImg);
+for(let i = 0; i < images.length; i++){
+    currentImg = images[i].image;
+    let url = `url('../${currentImg}')`;
+    let imgCol = document.createElement('div');
+    imgCol.classList.add('ms_img-col');
+    imgCol.style.backgroundImage = url;
+    listImg.append(imgCol);
+}
