@@ -26,7 +26,31 @@ console.log(mainImg);
 const listImg = document.querySelector('.ms_list-img');//identifico con la varibaile listImg il contenitore ms_list-img
 console.log(listImg);
 createImgs(listImg);
-
+let mainContent = document.querySelector('.ms_main-content');
+const upBtn = document.querySelector('.up');//individuo, tramite upBtn, il pulsante up
+const downBtn = document.querySelector('.down');//individuo, tramite downBtn, il pulsante down
+/**
+al click di uno dei due pulsanti si deve 'illuminare' l'immagine corrispondente a quella mostrata nel main img
+ */
+let counter = 0;
+let mainUrl = `url('../${images[counter].image}')`;
+mainImg.style.backgroundImage = mainUrl;
+mainContent.innerHTML = images[counter].text;
+upBtn.addEventListener('click', function(){
+    let currentMainImg = images[counter];
+    if(counter === 0){
+        counter = images.lenght -1;
+        mainContent.innerHTML = currentMainImg.text;
+        let mainUrl = `url('../${currentMainImg.image}')`;
+        mainImg.style.backgroundImage = mainUrl;
+        counter--;
+    }else{
+        counter = images.lenght -1;
+        mainContent.innerHTML = currentMainImg.text;
+        let mainUrl = `url('../${currentMainImg.image}')`;
+        mainImg.style.backgroundImage = mainUrl;
+    }
+})
 //////////LATO DELLE FUNZIONI
 function createImgs(imgContainer) {
     for (let i = 0; i < images.length; i++) {//assegnazione automatica delle immagini in listImg
@@ -34,6 +58,7 @@ function createImgs(imgContainer) {
         let url = `url('../${currentImg}')`;//creo un url da immettere inline in ogni div per effettuare il background
         let imgCol = document.createElement('div');//creo l'elemento div dove inserirò l'immagine
         imgCol.classList.add('ms_img-col');//ci aggiungo la classe ms_img-col
+        imgCol.classList.add('dark');//abbasso la luminosità delle immagini di default
         imgCol.style.backgroundImage = url;//aggiungo lo stile inline al div
         imgContainer.append(imgCol);//lo inserisco in ms_list-img
     }

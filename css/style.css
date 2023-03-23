@@ -33,6 +33,7 @@ img{
     height: 100%;
     background-size: cover;
     background-position: center;
+    position: relative;
     /*debug*/
     background-color: red;
 }
@@ -73,4 +74,28 @@ img{
     padding: 10px;
     background-color: white;
     border-radius: 50%;
+}
+.up,
+.down{
+    cursor: pointer;
+    z-index: 999;
+}
+/*MS MAIN IMG CHILDS*/
+.ms_main-content{
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    width: 100%;
+    height: 30%;
+    text-align: right;
+    color: white;
+    /*debug*/
+    background-color: rgba(0, 0, 0, 0.6);
+}
+/*DYNAMIC LAYOUT*/
+.light{
+    filter: brightness(1);
+}
+.dark{
+    filter: brightness(50%);
 }
