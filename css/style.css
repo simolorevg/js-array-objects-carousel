@@ -5,6 +5,9 @@
     box-sizing: border-box;
 }
 /*COMMON*/
+img{
+    max-width: 100%;
+}
 /*LAYOUT*/
 .ms_container{
     width: 100%;
@@ -28,6 +31,9 @@
 .ms_main-img{
     width: 70%;
     height: 100%;
+    background-image: url("../img/01.webp");
+    background-size: cover;
+    background-position: center;
     /*debug*/
     background-color: red;
 }
@@ -36,4 +42,10 @@
     height: 100%;
     /*debug*/
     background-color: aqua;
+}
+.ms_img-col{
+    width: 100%;
+    height: calc(100% / 5);
+    /*debug*/
+    border: 1px solid black;
 }
