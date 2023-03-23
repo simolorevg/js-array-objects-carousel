@@ -36,40 +36,9 @@ al click di uno dei due pulsanti si deve 'illuminare' l'immagine corrispondente 
 let counter = 0;
 let mainUrl = `url('../${images[counter].image}')`;
 mainImg.style.backgroundImage = mainUrl;
-mainContent.innerHTML = images[counter].text;
-upBtn.addEventListener('click', function(){
-    let currentMainImg = images[counter];
-    console.log('counter', counter);
-    console.log('current', currentMainImg);
-    if(counter === 0){
-        counter = images.length - 1; //4
-        mainContent.innerHTML = currentMainImg.text;
-        let mainUrl = `url('../${currentMainImg.image}')`;
-        mainImg.style.backgroundImage = mainUrl;
-        // counter--;
-    }else{
-        mainContent.innerHTML = currentMainImg.text;
-        let mainUrl = `url('../${currentMainImg.image}')`;
-        mainImg.style.backgroundImage = mainUrl;
-        counter--;
-    }
-});
-downBtn.addEventListener('click', function(){
-    let currentMainImg = images[counter];
-    if(counter === images.length -1){
-        counter = 0;
-        mainContent.innerHTML = currentMainImg.text;
-        let mainUrl = `url('../${currentMainImg.image}')`;
-        mainImg.style.backgroundImage = mainUrl;
-        
-    }else{
-        mainContent.innerHTML = currentMainImg.text;
-        let mainUrl = `url('../${currentMainImg.image}')`;
-        mainImg.style.backgroundImage = mainUrl;
-        counter++;
-    }
-    
-})
+mainContent.innerHTML = `<h2>${images[counter].title}</h2><p>${images[counter].text}</p>`;
+upBtn.addEventListener('click', prevIMG);
+downBtn.addEventListener('click', nextIMG);
 //////////LATO DELLE FUNZIONI
 function createImgs(imgContainer) {
     for (let i = 0; i < images.length; i++) {//assegnazione automatica delle immagini in listImg
@@ -83,3 +52,29 @@ function createImgs(imgContainer) {
     }
     return imgContainer;
 }
+function nextIMG() {
+    let currentMainImg = images[counter];
+    let imgList = document.querySelector('ms_img-col');
+    mainContent.innerHTML = `<h2>${images[counter].title}</h2><p>${images[counter].text}</p>`;
+    let mainUrl = `url('../${currentMainImg.image}')`;
+    mainImg.style.backgroundImage = mainUrl;
+    if (counter === images.length - 1) {
+        counter = 0;
+    } else {
+        counter++;
+    }
+}
+function prevIMG() {
+    let currentMainImg = images[counter];
+    mainContent.innerHTML = `<h2>${images[counter].title}</h2><p>${images[counter].text}</p>`;
+    let mainUrl = `url('../${currentMainImg.image}')`;
+    mainImg.style.backgroundImage = mainUrl;
+    console.log('counter', counter);
+    console.log('current', currentMainImg);
+    if (counter === 0) {
+        counter = images.length - 1;
+    } else {
+        counter--;
+    }
+}
+const automaticCarousel = setInterval(prevIMG,3000);

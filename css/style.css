@@ -8,6 +8,9 @@
 img{
     max-width: 100%;
 }
+body{
+    font-family: 'Ubuntu', sans-serif;
+}
 /*LAYOUT*/
 .ms_container{
     width: 100%;
@@ -89,6 +92,7 @@ img{
     height: 30%;
     text-align: right;
     color: white;
+    padding: 10px;
     /*debug*/
     background-color: rgba(0, 0, 0, 0.6);
 }
