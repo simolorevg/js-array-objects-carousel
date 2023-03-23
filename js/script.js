@@ -25,11 +25,17 @@ const mainImg = document.querySelector('.ms_main-img');//identifico con la varib
 console.log(mainImg);
 const listImg = document.querySelector('.ms_list-img');//identifico con la varibaile listImg il contenitore ms_list-img
 console.log(listImg);
-for(let i = 0; i < images.length; i++){
-    currentImg = images[i].image;
-    let url = `url('../${currentImg}')`;
-    let imgCol = document.createElement('div');
-    imgCol.classList.add('ms_img-col');
-    imgCol.style.backgroundImage = url;
-    listImg.append(imgCol);
+createImgs(listImg);
+
+//////////LATO DELLE FUNZIONI
+function createImgs(imgContainer) {
+    for (let i = 0; i < images.length; i++) {//assegnazione automatica delle immagini in listImg
+        let currentImg = images[i].image;//prendo direttamente l'url dell'immagine tramite la var currentImg
+        let url = `url('../${currentImg}')`;//creo un url da immettere inline in ogni div per effettuare il background
+        let imgCol = document.createElement('div');//creo l'elemento div dove inserirò l'immagine
+        imgCol.classList.add('ms_img-col');//ci aggiungo la classe ms_img-col
+        imgCol.style.backgroundImage = url;//aggiungo lo stile inline al div
+        imgContainer.append(imgCol);//lo inserisco in ms_list-img
+    }
+    return imgContainer;
 }
